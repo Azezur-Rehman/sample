@@ -92,7 +92,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 
     }
 
-  if ((RxHeader.StdId == 0x1800E5F5))
+  if ((RxHeader.StdId == 0x9800E5F5))
   {
 	  //canid = RxHeader.ExtId;
 	  sprintf(string, "%d-%d\n",RxHeader.ExtId,RxHeader.DLC);
