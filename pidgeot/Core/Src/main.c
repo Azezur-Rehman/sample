@@ -300,9 +300,9 @@ static void MX_CAN_Init(void)
     canfilterconfiguration.FilterActivation = CAN_FILTER_ENABLE;
     canfilterconfiguration.FilterBank=10;//WHICH FILTER BANK USED FROM ASSIGNED ONES//CAN REFER NO OF FILTER BANK IN DATA SHEET
     canfilterconfiguration.FilterFIFOAssignment=CAN_FILTER_FIFO0;//received data stored here
-    canfilterconfiguration.FilterIdHigh=0x1800E5F5;//0x446<<5;//can id
+    canfilterconfiguration.FilterIdHigh=0x9800E5F5;//0x446<<5;//can id
     canfilterconfiguration.FilterIdLow=0;
-    canfilterconfiguration.FilterMaskIdHigh=0x1800E5F5;//0x446<<5;//can mask id
+    canfilterconfiguration.FilterMaskIdHigh=0x9800E5F5;//0x446<<5;//can mask id
     canfilterconfiguration.FilterMaskIdLow=0;//0x0000;
     canfilterconfiguration.FilterMode=CAN_FILTERMODE_IDMASK;
     canfilterconfiguration.FilterScale=CAN_FILTERSCALE_32BIT;
