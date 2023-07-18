@@ -66,7 +66,7 @@ uint8_t dataArray[8];
 CAN_RxHeaderTypeDef   RxHeader;
 
 uint8_t               RxData[8];
-char			     datacheck[3];
+char		      datacheck[3];
 char                string[128];
 
 
@@ -166,8 +166,8 @@ int main(void)
 	 	       {
 	 	         sprintf(string, "%d-%d\n", RxHeader.StdId, RxHeader.DLC);
 	 	         send_uart(string);
-	 		 	  datacheck[0]= 1;
-	 			  HAL_GPIO_TogglePin(GPIOC, 13);
+	 		 datacheck[0]= 1;
+	 	         HAL_GPIO_TogglePin(GPIOC, 13);
 
 	 	       }
 	 	    /*   for (uint8_t i = 0; i < RxHeader.DLC; i++)
@@ -184,7 +184,7 @@ int main(void)
 	 	   }
 
 
-	  //
+	  
 	  HAL_StatusTypeDef rxStatus = HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &RxHeader, RxData);
 
 	  //if (HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO1, &RxHeader, RxData) == HAL_OK)
@@ -298,15 +298,15 @@ static void MX_CAN_Init(void)
 
     CAN_FilterTypeDef canfilterconfiguration;
     canfilterconfiguration.FilterActivation = CAN_FILTER_ENABLE;
-    canfilterconfiguration.FilterBank=10;//WHICH FILTER BANK USED FROM ASSIGNED ONES//CAN REFER NO OF FILTER BANK IN DATA SHEET
-    canfilterconfiguration.FilterFIFOAssignment=CAN_FILTER_FIFO0;//received data stored here
-    canfilterconfiguration.FilterIdHigh=0x9800E5F5;//0x446<<5;//can id
+    canfilterconfiguration.FilterBank=10;
+    canfilterconfiguration.FilterFIFOAssignment=CAN_FILTER_FIFO0;
+    canfilterconfiguration.FilterIdHigh=0x9800E5F5;
     canfilterconfiguration.FilterIdLow=0;
-    canfilterconfiguration.FilterMaskIdHigh=0x9800E5F5;//0x446<<5;//can mask id
-    canfilterconfiguration.FilterMaskIdLow=0;//0x0000;
+    canfilterconfiguration.FilterMaskIdHigh=0x9800E5F5;
+    canfilterconfiguration.FilterMaskIdLow=0;
     canfilterconfiguration.FilterMode=CAN_FILTERMODE_IDMASK;
     canfilterconfiguration.FilterScale=CAN_FILTERSCALE_32BIT;
-    canfilterconfiguration.SlaveStartFilterBank=0;//DOES NOT MATTER IN SINGLE CAN CON
+    canfilterconfiguration.SlaveStartFilterBank=0;
 
     HAL_CAN_ConfigFilter(&hcan, &canfilterconfiguration);
 
